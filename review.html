@@ -1,17 +1,18 @@
 <html>
-	<body>
-		<script>
-			function checkPassword {
-				prompt("What is the password?");
-			}
-			if(password == "624.936") {
-				alert("Correct!");
-			}
-			else {
-				alert("Incorrect.");
-				
-				}
-			checkPassword();
-		</script>
-	</body>
+    <body>
+        <script>
+            var Password
+            function checkPassword() {
+                Password = prompt("What is the password?");
+            }
+            checkPassword();
+            if (Password == "624.936") {
+                alert("Correct!");
+            }
+            else {
+                alert("Incorrect.");
+                checkPassword();
+            }
+        </script>
+    </body>
 </html>
