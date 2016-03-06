@@ -2,34 +2,65 @@
 	<head>
 		<title>nanohackers</title>
 	</head>
-	<body>
-		<script>
-			alert("nanohackeracademy has taken over your webpages.");
-			alert("*webpage security has been breached*");
-			var choice = prompt("How do you respond? Reinforce security or try to track nanohackeracademy");
-			if (choice == "Reinforce security" || choice == "reinforce security") {
-				var choice2 = prompt("*I am the representative of the society dubbed nanohackeracademy. Do you wish to talk?*");
-				if (choice2 == "Yes" || choice2 == "yes") {
-					var choice3 = prompt("*Do you know HTML?*");
-					if (choice3 == "Yes" || choice3 == "yes") {
-						var choice4 = prompt("*Then how do you include JavaScript in an html page?*");
-						if (choice4 == "<script>" ) {
-							alert("*Then you are worthy of joining our society.*");
-						}
-						else alert("*You are incorrect.*");
-					}
-					if (choice3 == "No" || choice3 == "no") {
-						alert("*Then goodbye. Forever.*");
-					}
+		<body>
+			<script>
+				alert("nanohackeracademy has taken over your webpages.");
+				alert("*webpage security has been breached*");
+				
+
+				function choice1() {
+					prompt("How do you respond? Reinforce security or try to track nanohackeracademy");
 				}
-				if (choice2 == "No" || choice2 == "no") {
+
+				function choice2() { 
+					prompt("*I am the representative of the society dubbed nanohackeracademy. Do you wish to talk?*");
+				}
+
+				function choice3() { 
+					prompt("*Do you know HTML?*");
+				}
+			
+				function choice4() {
+					prompt("*Then how do you include JavaScript in an html page?*");
+				}
+
+				choice1();
+
+				if (choice1 == "Reinforce security" || choice1 == "reinforce security") {
+					choice2();
+				}
+
+				if (choice1 == "Track nanohackeracademy" || choice1 == "track Nanohackeracademy") {
+					alert("*No IP adress can be found.*");
+				}
+			
+				else {
+					alert("Unrecieved. Please try again.");
+					choice1();
+				}	
+
+				if (choice2 == "Yes" || choice2 == "yes") {
+					choice3();
+				}
+
+				else {
 					alert("*Goodbye.*");
 				}
-			}
+				if (choice3 == "Yes" || choice3 == "yes") {
+					choice4();
+				}
+			
+				else {
+					alert("*Then goodbye. Forever.*");
+				}
+			
+				if (choice4 == "<script>" ) {
+					alert("*Then you are worthy of joining our society.*");
+				}
 
-			if (choice == "Track nanohackeracademy" || choice == "track htmlbot") {
-			alert("*No IP adress can be found.*");
-			}
+				else {
+					alert("*You are incorrect.*");
+				}
 		</script>
 	</body>
 </html>
