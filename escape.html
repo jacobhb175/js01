@@ -1,0 +1,73 @@
+<html>
+	<body>
+		<script>
+			var lockedDrawer			
+			var lockedBox
+			var roomOne
+			var roomTwo
+
+			function locked_drawer() {
+				lockedDrawer = prompt("Enter a four-letter code.")
+			}
+
+			function unlocked_drawer() {
+				alert("Inside of the drawer you find another key, which you use to open the final double-locked door's locks and escape.")
+			}
+
+			function locked_box() {
+				lockedBox = prompt("Enter a six-letter code.")
+			}
+
+			function unlocked_box() {
+				alert("The box opens. You find a lockpick. You try to pick the rusted lock of the office and succeed. Inside you find a cash box with fifty dollars in it, which you deliver to the guard, in exchange for the key to unlock the first of the double-locked door's locks.")
+				office();
+			}
+				function office() {
+					alert("You go back to the office, in which you found an old paper reading 'Gryffindor, Ravenclaw, and you.' You think that whoever made it was probably a nutcase that liked Harry Potter. You also find a locked desk drawer with a four-color code.")
+				locked_drawer();
+			}
+
+			function room_one() {
+				roomOne = prompt("This is the main room of the prison. There is a door to the outside, but it is double-locked. There is a guard on one side of the room and a door to the fitness area on the other. Do you: A. Talk to the guard or B. Enter the fitness area?");
+				if (roomOne == "A" || roomOne == "A." || roomOne == "a" || roomOne == "a.") {
+				alert("The guard whispers 'I'll give you one of the keys to the exit for five hundred bucks.' You thank him and enter the fitness area.");
+				room_two();
+			}
+			}
+
+			function room_two() {
+				roomTwo = prompt("In the fitness area, there is a large track surrounded by stone walls. On one stone wall, there is graffiti reading SINROP. There is also a small locked box with a six-letter code and three doors; one to the lunch area, one to a locked office with a rusted, misshapen, keyhole, and one back to the main room. Do you: A. Try to open the box, B. Go to the lunch area, or C, go back to the main room.")
+			}
+
+			alert("You were a thief. You were caught and are now in prison. You must find your way out.");
+			room_one();
+			if (roomOne == "B" || roomOne == "B." || roomOne == "b" || roomOne == "b.") {
+				room_two();
+			}
+			if (roomTwo == "A" || roomTwo == "A." || roomTwo == "a" || roomTwo == "a.") {
+				locked_box();
+			}
+			if (roomTwo == "B" || roomTwo == "B." || roomTwo == "b" || roomTwo == "b.") {
+				alert("You realize that the door is locked, only opening at breakfast, lunch, and dinner.");
+				room_two();
+			}
+			if (roomTwo == "C" || roomTwo == "C." || roomTwo == "c" || roomTwo == "c.") {
+				room_one();
+			}
+			if (lockedBox == "prison" || lockedBox == "Prison" || lockedBox == "PRISON") {
+				unlocked_box();
+			}	
+				else {
+					alert("Incorrect passcode.");
+					room2();
+				} 
+			if (lockedDrawer == "gray" || lockedDrawer == "Gray" || lockedDrawer == "GRAY"); {
+				unlocked_drawer();
+			}
+				else {
+					alert ("Incorrect passcode.");
+					office();
+				}
+		</script>
+	</body>
+</html>
