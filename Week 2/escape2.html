@@ -4,6 +4,7 @@
 			var hasKey1 = false;
 			var hasKey2 = false;
 			var hasLockpick = false;
+			var has$500 = false;
 			function locked_drawer() {
 				var lockedDrawer = prompt("Enter a four-letter code.");
 				if (lockedDrawer == "jail" || lockedDrawer == "Jail" || lockedDrawer == "JAIL") {
@@ -38,9 +39,9 @@
 			}
 
 			function unlocked_box() {
-				alert("The box opens. You find a lockpick. You try to pick the rusted lock of the office and succeed. Inside you find a cash box with five hundred dollars in it, which you deliver to the guard, in exchange for a key.");
-				hasKey1 = true;
+				alert("The box opens. You find a lockpick. You try to pick the rusted lock of the office and succeed. Inside you find a cash box with five hundred dollars in it.");
 				hasLockpick = true;
+				has$500 = true;
 				room_two();
 			}
 				function office() {
@@ -50,15 +51,20 @@
 
 			function room_one() {
 				var roomOne = prompt("This is the main room of the prison. There is a door to the outside, but it is double-locked. There is a guard on one side of the room and a door to the fitness area on the other. Do you: A. Talk to the guard or B. Enter the fitness area?");
-				if (roomOne == "A" || roomOne == "A." || roomOne == "a" || roomOne == "a.") {
+				if ((roomOne == "A" || roomOne == "A." || roomOne == "a" || roomOne == "a.") && has$500 == true) {
+					alert("The guard agrees to give you the key in exchange for your $500.")
+					hasKey1 = true;
+					room_one();
+					has$500 = false
+				}
+				if ((roomOne == "A" || roomOne == "A." || roomOne == "a" || roomOne == "a.") && has$500 == false) {
 				alert("The guard whispers 'I'll give you one of the keys to the exit for five hundred bucks.' You thank him and enter the fitness area.");
 				room_two();
 				}
 				if (roomOne == "B" || roomOne == "B." || roomOne == "b" || roomOne == "b.") {
 				room_two();
 				}
-			}
-
+				}
 			function room_two() {
 				var roomTwo = prompt("In the fitness area, there is a large track surrounded by stone walls. On one stone wall, there is graffiti reading SINROP. There is also a small locked box with a six-letter code and three doors; one to the lunch area, one to a locked office with a rusted, misshapen, keyhole, and one back to the main room. Do you: A. Try to open the box, B. Go to the lunch area, C. go back to the main room, or D. Enter the office");
 				if (roomTwo == "A" || roomTwo == "A." || roomTwo == "a" || roomTwo == "a.") {
@@ -75,6 +81,7 @@
 				office();
 				}
 			if ((roomTwo == "D" || roomTwo == "D." || roomTwo == "d" || roomTwo == "d.") && hasLockpick == false) {
+				alert("The office is locked.")
 				room_two();
 				}
 			}
