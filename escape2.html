@@ -1,6 +1,9 @@
 <html>
 	<body>
 		<script>
+			var hasKey1 = false;
+			var hasKey2 = false;
+			var hasLockpick
 			function locked_drawer() {
 				var lockedDrawer = prompt("Enter a four-letter code.");
 				if (lockedDrawer == "gray" || lockedDrawer == "Gray" || lockedDrawer == "GRAY") {
@@ -13,7 +16,12 @@
 			}
 
 			function unlocked_drawer() {
-				alert("Inside of the drawer you find another key, which you use to open the final of the double-locked door's locks and escape.");
+				if (hasKey1 == true) {
+					alert("Inside of the drawer you find another key, which you use to open the final of the double-locked door's locks and escape.");
+				}
+					else {
+
+					}
 			}
 
 			function locked_box() {
@@ -28,11 +36,13 @@
 			}
 
 			function unlocked_box() {
-				alert("The box opens. You find a lockpick. You try to pick the rusted lock of the office and succeed. Inside you find a cash box with five hundred dollars in it, which you deliver to the guard, in exchange for the key to unlock the first of the double-locked door's locks.");
-				office();
+				alert("The box opens. You find a lockpick. You try to pick the rusted lock of the office and succeed. Inside you find a cash box with five hundred dollars in it, which you deliver to the guard, in exchange for a key.");
+				hasKey = true;
+				hasLockpick = true;
+				room2();
 			}
 				function office() {
-					alert("You go back to the office, in which you found an old paper reading 'Gryffindor, Ravenclaw, and you.' You think that whoever made it was probably a nutcase that liked Harry Potter. You also find a locked desk drawer with a four-letter code.");
+					alert("You go back to the office, in which you found an old paper reading 'YARG!' You think that whoever made it was probably a nutcase that liked Harry Potter. You also find a locked desk drawer with a four-letter code.");
 				locked_drawer();
 			}
 
@@ -48,7 +58,7 @@
 			}
 
 			function room_two() {
-				var roomTwo = prompt("In the fitness area, there is a large track surrounded by stone walls. On one stone wall, there is graffiti reading SINROP. There is also a small locked box with a six-letter code and three doors; one to the lunch area, one to a locked office with a rusted, misshapen, keyhole, and one back to the main room. Do you: A. Try to open the box, B. Go to the lunch area, or C, go back to the main room.");
+				var roomTwo = prompt("In the fitness area, there is a large track surrounded by stone walls. On one stone wall, there is graffiti reading SINROP. There is also a small locked box with a six-letter code and three doors; one to the lunch area, one to a locked office with a rusted, misshapen, keyhole, and one back to the main room. Do you: A. Try to open the box, B. Go to the lunch area, C. go back to the main room, or D. Enter the office");
 				if (roomTwo == "A" || roomTwo == "A." || roomTwo == "a" || roomTwo == "a.") {
 				locked_box();
 				}
@@ -58,6 +68,12 @@
 				}
 			if (roomTwo == "C" || roomTwo == "C." || roomTwo == "c" || roomTwo == "c.") {
 				room_one();
+				}
+			if ((roomTwo == "D" || roomTwo == "D." || roomTwo == "d" || roomTwo == "d.") && hasLockpick == true) {
+				office();
+				}
+			if ((roomTwo == "D" || roomTwo == "D." || roomTwo == "d" || roomTwo == "d.") && hasLockpick == false) {
+				room_two();
 				}
 			}
 
