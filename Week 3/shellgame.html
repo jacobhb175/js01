@@ -2,15 +2,26 @@
 	<body>
 		<script>
 			var gamesPlayed = 0;
+			var score = 0;
 			while (gamesPlayed < 5) {
-				var actual = ;
+				var actual = Math.random();
+				if (actual <= 0.5) {
+					actual = "1";
+				}
+				else{
+					actual = "2";
+				}
+				guess = prompt("1 or 2?")
 				if (guess == actual) {
 					alert("Correct!");
+					score = score + 1;
 				}
 				else {
 					alert("Incorrect.");
 				}
+				gamesPlayed = gamesPlayed + 1;
 			}
+			alert("You scored " + score + ".")
 		</script>
 	</body>
 </html>

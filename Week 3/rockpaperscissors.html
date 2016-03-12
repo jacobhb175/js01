@@ -1,0 +1,35 @@
+<html>
+	<body>
+		<script>
+			var gamesPlayed = 0;
+			var score = 0;
+			while (gamesPlayed < 5) {
+				var computerChoice = Math.random();
+				if (computerChoice <= 0.5) {
+					computerChoice = "Rock";
+				}
+				else{
+					computerChoice = "Paper";
+				}
+				playerChoice = prompt("Rock, paper, scissors, shoot.")
+				if ((playerChoice == "rock" || playerChoice == "Rock" || playerChoice == "ROCK") && computerChoice == "Scissors") {
+					alert("Correct!");
+					score = score + 1;
+				}
+				if ((playerChoice == "paper" || playerChoice == "Paper" || playerChoice == "PAPER") && computerChoice == "Rock") {
+					alert("Correct!");
+					score = score + 1;
+				}
+				if ((playerChoice == "scissors" || playerChoice == "Scissors" || playerChoice == "SCISSORS") && computerChoice == "Paper") {
+					alert("Correct!");
+					score = score + 1;
+				}
+				else {
+					alert("Incorrect.");
+				}
+				gamesPlayed = gamesPlayed + 1;
+			}
+			alert("You scored " + score + ".")
+		</script>
+	</body>
+</html>
