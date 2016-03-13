@@ -4,9 +4,9 @@
 			var gamesPlayed = 0;
 			var score = 0;
 			var playerChoice;
-			var playerChoiceLow = str.toLowerCase;
 			while (gamesPlayed < 5) {
 				var computerChoice = Math.random();
+				var computerChoiceLow = computerChoice.toLowerCase();
 				if (computerChoice <= 0.3) {
 					computerChoice = "Rock";
 				}
@@ -17,19 +17,20 @@
 					computerChoice = "Paper";
 				}
 				playerChoice = prompt("Rock, paper, scissors, shoot.")
+				var playerChoiceLow = playerChoice.toLowerCase();
 				if (playerChoiceLow == "rock" && computerChoice == "Scissors") {
 					alert("Correct!");
 					score = score + 1;
 				}
-				else if ((playerChoice == "paper" || playerChoice == "Paper" || playerChoice == "PAPER") && computerChoice == "Rock") {
+				else if (playerChoiceLow == "paper" && computerChoice == "Rock") {
 					alert("Correct!");
 					score = score + 1;
 				}
-				else if ((playerChoice == "scissors" || playerChoice == "Scissors" || playerChoice == "SCISSORS") && computerChoice == "Paper") {
+				else if (playerChoiceLow == "scissors" && computerChoice == "Paper") {
 					alert("Correct!");
 					score = score + 1;
 				}
-				else if (playerChoice == computerChoice) {
+				else if (playerChoiceLow == computerChoiceLow) {
 					alert("Tie");
 					score = score + 0.5;
 				}
