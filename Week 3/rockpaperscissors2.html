@@ -3,30 +3,36 @@
 		<script>
 			var gamesPlayed = 0;
 			var score = 0;
+			var playerChoice;
+			var playerChoiceLow = str.toLowerCase;
 			while (gamesPlayed < 5) {
 				var computerChoice = Math.random();
-				if (computerChoice <= 0.5) {
+				if (computerChoice <= 0.3) {
 					computerChoice = "Rock";
 				}
-				else{
+				else if (computerChoice >= 0.6) {
+					computerChoice = "Scissors";
+				}
+				else {
 					computerChoice = "Paper";
 				}
 				playerChoice = prompt("Rock, paper, scissors, shoot.")
-				if ((playerChoice == "rock" || playerChoice == "Rock" || playerChoice == "ROCK") && computerChoice == "Scissors") {
+				if (playerChoiceLow == "rock" && computerChoice == "Scissors") {
 					alert("Correct!");
 					score = score + 1;
 				}
-				if ((playerChoice == "paper" || playerChoice == "Paper" || playerChoice == "PAPER") && computerChoice == "Rock") {
+				else if ((playerChoice == "paper" || playerChoice == "Paper" || playerChoice == "PAPER") && computerChoice == "Rock") {
 					alert("Correct!");
 					score = score + 1;
 				}
-				if ((playerChoice == "scissors" || playerChoice == "Scissors" || playerChoice == "SCISSORS") && computerChoice == "Paper") {
+				else if ((playerChoice == "scissors" || playerChoice == "Scissors" || playerChoice == "SCISSORS") && computerChoice == "Paper") {
 					alert("Correct!");
 					score = score + 1;
 				}
-				if (playerChoice == computerChoice) {
+				else if (playerChoice == computerChoice) {
 					alert("Tie");
 					score = score + 0.5;
+				}
 				else {
 					alert("Incorrect.");
 				}
