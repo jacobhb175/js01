@@ -4,7 +4,6 @@
 			var gamesPlayed = 0;
 			var score = 0;
 			var playerChoice;
-			var playerChoiceLow = playerChoice.toLowerCase();
 			while (gamesPlayed < 5) {
 				var computerChoice = Math.random();
 				if (computerChoice <= 0.3) {
@@ -16,6 +15,7 @@
 				else {
 					computerChoice = "Paper";
 				}
+				var playerChoiceLow = playerChoice.toLowerCase();
 				playerChoice = prompt("Rock, paper, scissors, shoot.")
 				if (playerChoiceLow == "rock" && computerChoice == "Scissors") {
 					alert("Correct!");
