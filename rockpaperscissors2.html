@@ -7,14 +7,17 @@
 			while (gamesPlayed < 5) {
 				var computerChoice = Math.random();
 				var computerChoiceLow = computerChoice.toLowerCase();
-				if (computerChoice <= 0.3) {
+				if (computerChoice < 0.3) {
 					computerChoice = "Rock";
 				}
-				else if (computerChoice >= 0.6) {
-					computerChoice = "Scissors";
-				}
-				else {
+				else if (computerChoice < 0.6 && > 0.3) {
 					computerChoice = "Paper";
+				}
+				else if (computerChoice < 0.6) {
+					computerChoice = "Scissors";
+				}	
+				else {
+					computerChoice;
 				}
 				playerChoice = prompt("Rock, paper, scissors, shoot.")
 				var playerChoiceLow = playerChoice.toLowerCase();
