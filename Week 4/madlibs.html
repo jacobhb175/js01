@@ -3,5 +3,29 @@
 		<i>Nano</i><br/>
 		<b>Hacker</b><br/>
 		<u>Academy</u><br/>
+		<label for = "stringInput">Please place the string here.</label>
+		<input type = "text" id = "stringInput"></input>
+		<span id = "doubledStringSpan">
+		<input type = "color"></input>
+		<input type = "date"></input>
+		<br/>
+		<button onmouseenter = "iCanReadYourMind();" onmouseleave = "youCanNotEscape();"onclick = "doNotPush();"> Do not push!</button>
+		<script>
+		function doNotPush() {
+			console.log("THE EARTH EXPLODES INTO A MILLION PIECES AND YOU DIE!!!!!");
+			var stringInput = document.getElementById("stringInput");
+			var stringSafe = stringInput.value;
+			var doubledStringSafe = stringSafe + stringSafe
+			console.log(doubledStringSafe);
+			var doubledString = stringSafe + stringSafe
+			doubledStringSpan.textContent = doubledStringSafe
+		}
+		function iCanReadYourMind() {
+			console.log("I know you want to push the button. I can read your mind. Push the button!")
+		}
+		function youCanNotEscape() {
+			console.log("You can not escape. I will follow you. You will push the button!")
+		}
+		</script>
 	</body>
 </html>
