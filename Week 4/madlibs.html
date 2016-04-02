@@ -5,7 +5,7 @@
 		<u>Academy</u><br/>
 		<label for = "stringInput">Please place the string here.</label>
 		<input type = "text" id = "stringInput"></input>
-		<span id = "doubledStringSpan">
+		<span id = "stringSpan"></span>
 		<input type = "color"></input>
 		<input type = "date"></input>
 		<br/>
@@ -16,9 +16,10 @@
 			var stringInput = document.getElementById("stringInput");
 			var stringSafe = stringInput.value;
 			var doubledStringSafe = stringSafe + stringSafe
-			console.log(doubledStringSafe);
 			var doubledString = stringSafe + stringSafe
-			doubledStringSpan.textContent = doubledStringSafe
+			var doubledStringSpan = document.getElementById("stringSpan");
+			doubledStringSpan.textContent = doubledStringSafe;
+			console.log(doubledStringSafe);
 		}
 		function iCanReadYourMind() {
 			console.log("I know you want to push the button. I can read your mind. Push the button!")
