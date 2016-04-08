@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>CraftyJS Intro</title>
+    <script src="https://rawgithub.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
+  </head>
+  <body>
+    <script>
+      function start() {
+        Crafty.init();
+
+        var attributes = { x: 100, y: 100, w: 50, h: 50 };
+
+        var player = Crafty.e("2D, DOM, Color, Fourway");
+        player.attr(attributes);
+        player.color("blue");
+        player.fourway();
+      }
+
+      window.onload = start;
+    </script>
+  </body>
+</html>
