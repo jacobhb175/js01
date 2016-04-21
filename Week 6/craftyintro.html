@@ -6,15 +6,9 @@
 	</head>
 	<body>
 		<script>
-			var assets = {
-    			"audio": {
-        			"beep": ["beep.wav", "beep.mp3", "beep.ogg"]
-    			}
-			}
-			Crafty.load({assets,  callback})
 			function start() {
 				Crafty.init();
-				var player = Crafty.e("Player, 2D, DOM, Color, Twoway, Gravity");
+				var player = Crafty.e("Player, 2D, DOM, Color, Twoway, Gravity, Rotation");
 				var attributes = {x:100, y:25, w:25, h:25,
 				}
 				player.attr(attributes);
@@ -35,7 +29,7 @@
 				platform3.color("blue");
 
 				var goal = Crafty.e("2D, DOM, Color, Solid, Collision")
-				goal.attr({x:250, y:500, w:50, h:5})
+				goal.attr({x:275, y:500, w:50, h:5})
 				goal.color("red");
 				goal.onHit("Player", reachedGoal);
 
