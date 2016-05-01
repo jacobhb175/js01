@@ -6,37 +6,82 @@
 	</head>
 	<body>
 		<script>
-			function start() {
-				Crafty.init();
-				var player = Crafty.e("Player, 2D, DOM, Color, Twoway, Gravity, Rotation");
-				var attributes = {x:100, y:25, w:25, h:25,
-				}
-				player.attr(attributes);
-				player.color("green");
-				player.twoway();
-				player.gravity("Platform");
+			function initLevel1() {
+					var player = Crafty.e("Persist, Player, 2D, DOM, Color, Twoway, Gravity, Rotation");
+					var attributes = {x:100, y:25, w:25, h:25}
 
+					player.attr(attributes);
+					player.color("green");
+					player.twoway();
+					player.gravity("Platform");
+
+					var platform = Crafty.e("Platform, 2D, DOM, Color")
+					platform.attr({x:50,y:125, w:175, h:25})
+					platform.color("blue");
+
+					var platform2 = Crafty.e("Platform, 2D, DOM, Color")
+					platform2.attr({x:150,y:225, w:175, h:25})
+					platform2.color("blue");
+
+					var platform3 = Crafty.e("Platform, 2D, DOM, Color")
+					platform3.attr({x:50,y:325, w:175, h:25})
+					platform3.color("blue");
+
+					var goalMarker = Crafty.e("2D, DOM, Solid, Collision")
+					goalMarker.attr({x:275, y:420, w:50, h:5})
+					goalMarker.onHit("Player", reachedGoal);
+
+					var goal = Crafty.e("Platform, 2D, DOM, Color, Solid, Collision")
+					goal.attr({x:275, y:425, w:50, h:5})
+					goal.color("red");
+
+					var won = false;
+
+					function reachedGoal() {
+						if (won == false) { 
+							alert("You have completed level 1. You will now be aadvanced into the second level.")
+							Crafty.enterScene("level2")
+						}
+						won = true;
+					}
+				}
+
+			function initLevel2() {
 				var platform = Crafty.e("Platform, 2D, DOM, Color")
-				platform.attr({x:50,y:125, w:175, h:25})
+				platform.attr({x:275, y:425, w:175, h:25})
 				platform.color("blue");
 
 				var platform2 = Crafty.e("Platform, 2D, DOM, Color")
-				platform2.attr({x:150,y:225, w:175, h:25})
+				platform2.attr({x:375, y:325, w:175, h:25})
 				platform2.color("blue");
 
 				var platform3 = Crafty.e("Platform, 2D, DOM, Color")
-				platform3.attr({x:50,y:325, w:175, h:25})
+				platform3.attr({x:275, y:225, w:175, h:25})
 				platform3.color("blue");
 
-				var goal = Crafty.e("2D, DOM, Color, Solid, Collision")
-				goal.attr({x:275, y:500, w:50, h:5})
+				var goalMarker = Crafty.e("2D, DOM, Collision")
+				goalMarker.attr({x:375, y:120, w:50, h:5})
+				goalMarker.onHit("Player", reachedGoal);
+
+				var goal = Crafty.e("Platform, 2D, DOM, Color")
+				goal.attr({x:375, y:125, w:50, h:5})
 				goal.color("red");
-				goal.onHit("Player", reachedGoal);
+
+				var won = false
 
 				function reachedGoal() {
-					alert("You win!")
-					Crafty.audio.play("beep", 2, 0.75)
+					if (!won) {
+						alert("You have completed level 2. You won.")
+					}
+					won = true;
 				}
+			}
+
+			function start() {
+				Crafty.init();
+				Crafty.scene("level1", initLevel1);
+				Crafty.scene("level2", initLevel2);
+				Crafty.enterScene("level1");
 			}
 			window.onload = start;
 		</script>
