@@ -22,8 +22,8 @@
 				}
 					else {
 						alert("Inside of the drawer you find a key for one of the door's locks.");
-						room_two();
 						hasKey2 = true
+						room_two();
 					}
 			}
 
@@ -51,11 +51,14 @@
 
 			function room_one() {
 				var roomOne = prompt("This is the main room of the prison. There is a door to the outside, but it is double-locked. There is a guard on one side of the room and a door to the fitness area on the other. Do you: A. Talk to the guard or B. Enter the fitness area?");
-				if ((roomOne == "A" || roomOne == "A." || roomOne == "a" || roomOne == "a.") && has$500 == true) {
+				if ((roomOne == "A" || roomOne == "A." || roomOne == "a" || roomOne == "a.") && has$500 == true && hasKey2 == false) {
 					alert("The guard agrees to give you the key in exchange for your $500.")
 					hasKey1 = true;
-					room_one();
 					has$500 = false
+					room_one();
+				}
+				if ((roomOne == "A" || roomOne == "A." || roomOne == "a" || roomOne == "a.") && has$500 == true && hasKey2 == true) {
+					alert("The guard gives you another key, which you use to open the final of the double-locked door's locks and escape.")
 				}
 				if ((roomOne == "A" || roomOne == "A." || roomOne == "a" || roomOne == "a.") && has$500 == false) {
 				alert("The guard whispers 'I'll give you one of the keys to the exit for five hundred bucks.' You thank him and enter the fitness area.");
